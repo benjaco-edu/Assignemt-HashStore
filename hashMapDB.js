@@ -11,15 +11,9 @@ function fileExist(path) {
 }
 
 
-<<<<<<< HEAD
 function readFileRange(path, buffer, start, length) {
     return new Promise((resolve, reject) => {
         fs.open(path, 'r', function (err, fd) {
-=======
-function readFileRange(buffer, start, length) {
-    return new Promise((resolve, reject) => {
-        fs.open(this.databaseFileName, 'r', function (err, fd) {
->>>>>>> e2f051d... Initial commit
             if (err) {
                 return reject()
             }
@@ -42,7 +36,6 @@ class HashMapDB {
     init() {
         return new Promise(async (resolve, reject) => {
 
-<<<<<<< HEAD
             if (!await fileExist(this.databaseFileName)) {
                 return resolve()
             }
@@ -59,24 +52,6 @@ class HashMapDB {
             })
                 .on('close', resolve)
                 .on('error', reject);
-=======
-            if (await fileExist(this.databaseFileName)) {
-
-                const rl = readline(this.databaseFileName, {});
-
-                rl.on('line', (line, lineCount, bytesReadIncludingLine) => {
-
-                    let key = line.split(":")[0],
-                        dataStartsAt = bytesReadIncludingLine - line.length + key.length + 1,
-                        length = bytesReadIncludingLine - dataStartsAt;
-
-                    this.hashMap.set(key, [dataStartsAt, length]);
-                })
-                    .on('close', resolve)
-                    .on('error', reject);
-
-            }
->>>>>>> e2f051d... Initial commit
         });
     }
 
@@ -86,11 +61,7 @@ class HashMapDB {
             let [start, length] = this.hashMap.get(key);
             let buffer = Buffer.alloc(length);
 
-<<<<<<< HEAD
             let data = await readFileRange(this.databaseFileName, buffer, start, length);
-=======
-            let data = await readFileRange(buffer, start, length);
->>>>>>> e2f051d... Initial commit
 
             return decodeURIComponent(data);
         } else {

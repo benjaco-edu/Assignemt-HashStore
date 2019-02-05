@@ -2,12 +2,9 @@
   "name": "assignemt-hashstore",
   "version": "0.0.0",
   "private": true,
-<<<<<<< HEAD
-=======
   "scripts": {
     "start": "node app.js"
   },
->>>>>>> e2f051d... Initial commit
   "dependencies": {
     "express": "~4.16.0",
     "linebyline": "^1.3.0"
