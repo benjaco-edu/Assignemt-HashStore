@@ -1,9 +1,0 @@
-node_modules
-npm-debug.log
-.idea
-<<<<<<< HEAD
-*/database.txt
-=======
-data
->>>>>>> e2f051d... Initial commit
-*.md
